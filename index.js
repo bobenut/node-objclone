@@ -67,5 +67,5 @@ var a1 = {
 
 var a2 = ['c1','c2','c3'];
 
-var b= a2.cloneOwn();
+var b= a1.cloneOwn();
 console.log(b);
