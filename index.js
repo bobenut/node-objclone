@@ -1,41 +1,40 @@
+Object.prototype.cloneOwn = function () {
+    var obj = this;
 
-Object.prototype.cloneOwn = function() {
-  var obj = this;
+    if (typeof obj !== 'object')
+        return obj;
 
-  if (typeof obj !== 'object')
-      return obj;
-
-    if (obj instanceof Array){
+    if (obj instanceof Array) {
         return obj.cloneArray();
     }
 
-  var attrs = arguments[0]
-  var enable_spec_attr = true;
-  if (!(attrs instanceof Array)) {
-      attrs = obj;
-      enable_spec_attr = false;
-  }
+    var attrs = arguments[0]
+    var enable_spec_attr = true;
+    if (!(attrs instanceof Array)) {
+        attrs = obj;
+        enable_spec_attr = false;
+    }
 
-  var result = {};
-  var i;
-  for (i in attrs) {
-      attr = enable_spec_attr? attrs[i]: i;
-      if (obj.hasOwnProperty(attr)) {
-          if (obj[attr] instanceof Array) {
-              result[attr] = obj[attr].cloneArray();
-          }
-          else if (typeof obj[attr] === 'object') {
-              result[attr] = obj[attr].cloneOwn();
-          } else {
-              result[attr] = obj[attr];
-          }
-      }
-  }
+    var result = {};
+    var i;
+    for (i in attrs) {
+        attr = enable_spec_attr ? attrs[i] : i;
+        if (obj.hasOwnProperty(attr)) {
+            if (obj[attr] instanceof Array) {
+                result[attr] = obj[attr].cloneArray();
+            }
+            else if (typeof obj[attr] === 'object') {
+                result[attr] = obj[attr].cloneOwn();
+            } else {
+                result[attr] = obj[attr];
+            }
+        }
+    }
 
-  return result;
+    return result;
 };
 
-Array.prototype.cloneArray = function(array) {
+Array.prototype.cloneArray = function (array) {
 
     var array = this;
     if (!(array instanceof Array))
@@ -44,9 +43,9 @@ Array.prototype.cloneArray = function(array) {
     result = [];
 
     var i;
-    for(i in array) {
+    for (i in array) {
         if (typeof array[i] !== 'object') {
-            if(array.hasOwnProperty(i)){
+            if (array.hasOwnProperty(i)) {
                 result[i] = array[i];
             }
 
@@ -60,12 +59,3 @@ Array.prototype.cloneArray = function(array) {
     return result;
 }
 
-var a1 = {
-    name:'frank',
-    age:20
-};
-
-var a2 = ['c1','c2','c3'];
-
-var b= a1.cloneOwn();
-console.log(b);
