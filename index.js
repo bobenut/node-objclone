@@ -1,3 +1,5 @@
+"use strict"
+
 Object.prototype.cloneOwn = function () {
     var obj = this;
 
@@ -15,10 +17,11 @@ Object.prototype.cloneOwn = function () {
         enable_spec_attr = false;
     }
 
-    var result = {};
-    var i;
+    var result = {},
+        i;
+
     for (i in attrs) {
-        attr = enable_spec_attr ? attrs[i] : i;
+        var attr = enable_spec_attr ? attrs[i] : i;
         if (obj.hasOwnProperty(attr)) {
             if (obj[attr] instanceof Array) {
                 result[attr] = obj[attr].cloneArray();
@@ -40,9 +43,9 @@ Array.prototype.cloneArray = function (array) {
     if (!(array instanceof Array))
         return [];
 
-    result = [];
+    var result = [],
+        i;
 
-    var i;
     for (i in array) {
         if (typeof array[i] !== 'object') {
             if (array.hasOwnProperty(i)) {

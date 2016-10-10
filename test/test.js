@@ -1,3 +1,4 @@
+"use strict"
 require('../index.js')
 var assert = require('assert');
 
@@ -41,15 +42,15 @@ var p3 = {
     prp5: ['prp5_v1', 'prp5_v2', 999, 88.123, 'prp5_v3']
 };
 
-//console.log(r3)
 var r3 = p3.cloneOwn();
+//console.log(r3)
 console.log(assert.deepEqual(p3, r3, 'case3 not equal') ? '' : 'case3 ok');
 
 //--------------------------case4----------------------------
 var p4 = ['v1', 'v2', 999, 88.123, 'v3'];
 
 var r4 = p4.cloneOwn();
-//console.log(r4)
+//console.log(r4);
 console.log(assert.deepEqual(p4, r4, 'case4 not equal') ? '' : 'case4 ok');
 
 //--------------------------case5----------------------------
@@ -67,17 +68,17 @@ var p5 = ['v1', 'v2', 999, 88.123, 'v3',
     }];
 
 var r5 = p5.cloneOwn();
-//console.log(r5)
-//console.log(assert.deepEqual(p5, r5, 'case5 not equal') ? '' : 'case5 ok');
+//console.log(r5);
+console.log(assert.deepEqual(p5, r5, 'case5 not equal') ? '' : 'case5 ok');
 
 //--------------------------case6----------------------------
 var p6 = [];
 var r6 = p6.cloneOwn();
-//console.log(r6)
+//console.log(r6);
 console.log(assert.deepEqual(p6, r6, 'case6 not equal') ? '' : 'case6 ok');
 
 //--------------------------case7----------------------------
 var p7 = {};
 var r7 = p7.cloneOwn();
-//console.log(r7)
+//console.log(r7);
 console.log(assert.deepEqual(p7, r7, 'case7 not equal') ? '' : 'case7 ok');
