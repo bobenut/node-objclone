@@ -1,5 +1,5 @@
 {
-  "name": "node-objclone",
+  "name": "objclone",
   "version": "0.1.0",
   "description": "A node.js module for cloning object.",
   "main": "index.js",
