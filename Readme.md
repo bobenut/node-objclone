@@ -1,15 +1,15 @@
-#objclone
+# objclone
 
-##Purpose
+## Purpose
 A node.js module for cloning javascript object, array.
 
-##Installation
+## Installation
 Via npm.
 ```
 npm install objclone
 ```
 
-##Usage
+## Usage
 Clone object.
 ```
 var p1 = {
@@ -48,5 +48,5 @@ var r3 = p3.cloneOwn();
 console.log(r3)
 ```
 
-##License
-Objclone is licensed under the GNU General Public License v3.0.
+## License
+Objclone is licensed under the MIT.
